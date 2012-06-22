@@ -14,10 +14,28 @@
 		9438A11E1593E4120042CA60 /* UITableView+NXEmptyView.framework in Resources */ = {isa = PBXBuildFile; fileRef = 9438A1061593E4110042CA60 /* UITableView+NXEmptyView.framework */; };
 		9438A1241593E4120042CA60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9438A1221593E4120042CA60 /* InfoPlist.strings */; };
 		9438A1271593E4120042CA60 /* UITableView_NXEmptyViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1261593E4120042CA60 /* UITableView_NXEmptyViewTests.m */; };
+		9438A1361593E4410042CA60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1181593E4120042CA60 /* UIKit.framework */; };
+		9438A1371593E4410042CA60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A11A1593E4120042CA60 /* Foundation.framework */; };
+		9438A1391593E4410042CA60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1381593E4410042CA60 /* CoreGraphics.framework */; };
+		9438A13F1593E4410042CA60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9438A13D1593E4410042CA60 /* InfoPlist.strings */; };
+		9438A1411593E4410042CA60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1401593E4410042CA60 /* main.m */; };
+		9438A1451593E4410042CA60 /* NXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1441593E4410042CA60 /* NXAppDelegate.m */; };
+		9438A1481593E4410042CA60 /* NXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1471593E4410042CA60 /* NXViewController.m */; };
+		9438A14B1593E4410042CA60 /* NXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9438A1491593E4410042CA60 /* NXViewController.xib */; };
+		9438A1511593E45E0042CA60 /* UITableView+NXEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9438A14F1593E45E0042CA60 /* UITableView+NXEmptyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9438A1521593E45E0042CA60 /* UITableView+NXEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1501593E45E0042CA60 /* UITableView+NXEmptyView.m */; };
+		9438A1531593E4780042CA60 /* UITableView+NXEmptyView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1061593E4110042CA60 /* UITableView+NXEmptyView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9438A11C1593E4120042CA60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9438A0F91593E4110042CA60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9438A1051593E4110042CA60;
+			remoteInfo = "UITableView+NXEmptyView";
+		};
+		9438A1541593E6FD0042CA60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9438A0F91593E4110042CA60 /* Project object */;
 			proxyType = 1;
@@ -39,6 +57,19 @@
 		9438A1231593E4120042CA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9438A1251593E4120042CA60 /* UITableView_NXEmptyViewTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableView_NXEmptyViewTests.h; sourceTree = "<group>"; };
 		9438A1261593E4120042CA60 /* UITableView_NXEmptyViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableView_NXEmptyViewTests.m; sourceTree = "<group>"; };
+		9438A1341593E4410042CA60 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9438A1381593E4410042CA60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9438A13C1593E4410042CA60 /* DemoApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoApp-Info.plist"; sourceTree = "<group>"; };
+		9438A13E1593E4410042CA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9438A1401593E4410042CA60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9438A1421593E4410042CA60 /* DemoApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Prefix.pch"; sourceTree = "<group>"; };
+		9438A1431593E4410042CA60 /* NXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXAppDelegate.h; sourceTree = "<group>"; };
+		9438A1441593E4410042CA60 /* NXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXAppDelegate.m; sourceTree = "<group>"; };
+		9438A1461593E4410042CA60 /* NXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXViewController.h; sourceTree = "<group>"; };
+		9438A1471593E4410042CA60 /* NXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXViewController.m; sourceTree = "<group>"; };
+		9438A14A1593E4410042CA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NXViewController.xib; sourceTree = "<group>"; };
+		9438A14F1593E45E0042CA60 /* UITableView+NXEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NXEmptyView.h"; sourceTree = "<group>"; };
+		9438A1501593E45E0042CA60 /* UITableView+NXEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NXEmptyView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +90,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9438A1311593E4410042CA60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9438A1531593E4780042CA60 /* UITableView+NXEmptyView.framework in Frameworks */,
+				9438A1361593E4410042CA60 /* UIKit.framework in Frameworks */,
+				9438A1371593E4410042CA60 /* Foundation.framework in Frameworks */,
+				9438A1391593E4410042CA60 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +109,7 @@
 			children = (
 				9438A1081593E4110042CA60 /* UITableView+NXEmptyView */,
 				9438A11F1593E4120042CA60 /* UITableView+NXEmptyViewTests */,
+				9438A13A1593E4410042CA60 /* DemoApp */,
 				9438A1151593E4120042CA60 /* Frameworks */,
 				9438A1071593E4110042CA60 /* Products */,
 			);
@@ -77,6 +120,7 @@
 			children = (
 				9438A1061593E4110042CA60 /* UITableView+NXEmptyView.framework */,
 				9438A1141593E4120042CA60 /* UITableView+NXEmptyViewTests.octest */,
+				9438A1341593E4410042CA60 /* DemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +128,8 @@
 		9438A1081593E4110042CA60 /* UITableView+NXEmptyView */ = {
 			isa = PBXGroup;
 			children = (
+				9438A14F1593E45E0042CA60 /* UITableView+NXEmptyView.h */,
+				9438A1501593E45E0042CA60 /* UITableView+NXEmptyView.m */,
 				9438A1091593E4110042CA60 /* Supporting Files */,
 			);
 			path = "UITableView+NXEmptyView";
@@ -105,6 +151,7 @@
 				9438A1161593E4120042CA60 /* SenTestingKit.framework */,
 				9438A1181593E4120042CA60 /* UIKit.framework */,
 				9438A11A1593E4120042CA60 /* Foundation.framework */,
+				9438A1381593E4410042CA60 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +175,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9438A13A1593E4410042CA60 /* DemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				9438A1431593E4410042CA60 /* NXAppDelegate.h */,
+				9438A1441593E4410042CA60 /* NXAppDelegate.m */,
+				9438A1461593E4410042CA60 /* NXViewController.h */,
+				9438A1471593E4410042CA60 /* NXViewController.m */,
+				9438A1491593E4410042CA60 /* NXViewController.xib */,
+				9438A13B1593E4410042CA60 /* Supporting Files */,
+			);
+			path = DemoApp;
+			sourceTree = "<group>";
+		};
+		9438A13B1593E4410042CA60 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9438A13C1593E4410042CA60 /* DemoApp-Info.plist */,
+				9438A13D1593E4410042CA60 /* InfoPlist.strings */,
+				9438A1401593E4410042CA60 /* main.m */,
+				9438A1421593E4410042CA60 /* DemoApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -135,6 +206,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438A1511593E45E0042CA60 /* UITableView+NXEmptyView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +253,24 @@
 			productReference = 9438A1141593E4120042CA60 /* UITableView+NXEmptyViewTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		9438A1331593E4410042CA60 /* DemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9438A14C1593E4410042CA60 /* Build configuration list for PBXNativeTarget "DemoApp" */;
+			buildPhases = (
+				9438A1301593E4410042CA60 /* Sources */,
+				9438A1311593E4410042CA60 /* Frameworks */,
+				9438A1321593E4410042CA60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9438A1551593E6FD0042CA60 /* PBXTargetDependency */,
+			);
+			name = DemoApp;
+			productName = DemoApp;
+			productReference = 9438A1341593E4410042CA60 /* DemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +294,7 @@
 			targets = (
 				9438A1051593E4110042CA60 /* UITableView+NXEmptyView */,
 				9438A1131593E4120042CA60 /* UITableView+NXEmptyViewTests */,
+				9438A1331593E4410042CA60 /* DemoApp */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +314,15 @@
 			files = (
 				9438A11E1593E4120042CA60 /* UITableView+NXEmptyView.framework in Resources */,
 				9438A1241593E4120042CA60 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9438A1321593E4410042CA60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9438A13F1593E4410042CA60 /* InfoPlist.strings in Resources */,
+				9438A14B1593E4410042CA60 /* NXViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438A1521593E45E0042CA60 /* UITableView+NXEmptyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +400,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9438A1301593E4410042CA60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9438A1411593E4410042CA60 /* main.m in Sources */,
+				9438A1451593E4410042CA60 /* NXAppDelegate.m in Sources */,
+				9438A1481593E4410042CA60 /* NXViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -306,6 +417,11 @@
 			isa = PBXTargetDependency;
 			target = 9438A1051593E4110042CA60 /* UITableView+NXEmptyView */;
 			targetProxy = 9438A11C1593E4120042CA60 /* PBXContainerItemProxy */;
+		};
+		9438A1551593E6FD0042CA60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9438A1051593E4110042CA60 /* UITableView+NXEmptyView */;
+			targetProxy = 9438A1541593E6FD0042CA60 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -324,6 +440,22 @@
 				9438A1231593E4120042CA60 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9438A13D1593E4410042CA60 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9438A13E1593E4410042CA60 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9438A1491593E4410042CA60 /* NXViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9438A14A1593E4410042CA60 /* en */,
+			);
+			name = NXViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -394,6 +526,7 @@
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
@@ -420,6 +553,7 @@
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				LINK_WITH_STANDARD_LIBRARIES = NO;
 				MACH_O_TYPE = mh_object;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
@@ -469,6 +603,51 @@
 			};
 			name = Release;
 		};
+		9438A14D1593E4410042CA60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode44-DP6.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";
+				INFOPLIST_FILE = "DemoApp/DemoApp-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					"UITableView+NXEmptyView",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9438A14E1593E4410042CA60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode44-DP6.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";
+				INFOPLIST_FILE = "DemoApp/DemoApp-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					"UITableView+NXEmptyView",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -494,6 +673,14 @@
 			buildConfigurations = (
 				9438A12E1593E4120042CA60 /* Debug */,
 				9438A12F1593E4120042CA60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9438A14C1593E4410042CA60 /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9438A14D1593E4410042CA60 /* Debug */,
+				9438A14E1593E4410042CA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
