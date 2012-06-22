@@ -68,7 +68,6 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
 
 - (void)nxEV_updateEmptyView;
 {
-    NSLog(@"update");
     UIView *emptyView = self.nxEV_emptyView;
     
     if (!emptyView) return;
