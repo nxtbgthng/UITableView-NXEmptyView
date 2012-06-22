@@ -25,6 +25,8 @@
 		9438A1511593E45E0042CA60 /* UITableView+NXEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9438A14F1593E45E0042CA60 /* UITableView+NXEmptyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9438A1521593E45E0042CA60 /* UITableView+NXEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438A1501593E45E0042CA60 /* UITableView+NXEmptyView.m */; };
 		9438A1531593E4780042CA60 /* UITableView+NXEmptyView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1061593E4110042CA60 /* UITableView+NXEmptyView.framework */; };
+		9438A18415940E490042CA60 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A17C15940E380042CA60 /* libOCMock.a */; };
+		9438A1861594196E0042CA60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1381593E4410042CA60 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,13 @@
 		9438A14A1593E4410042CA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NXViewController.xib; sourceTree = "<group>"; };
 		9438A14F1593E45E0042CA60 /* UITableView+NXEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NXEmptyView.h"; sourceTree = "<group>"; };
 		9438A1501593E45E0042CA60 /* UITableView+NXEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NXEmptyView.m"; sourceTree = "<group>"; };
+		9438A17C15940E380042CA60 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		9438A17E15940E380042CA60 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		9438A17F15940E380042CA60 /* OCMArg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		9438A18015940E380042CA60 /* OCMConstraint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		9438A18115940E380042CA60 /* OCMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		9438A18215940E380042CA60 /* OCMockObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		9438A18315940E380042CA60 /* OCMockRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438A1861594196E0042CA60 /* CoreGraphics.framework in Frameworks */,
 				9438A1171593E4120042CA60 /* SenTestingKit.framework in Frameworks */,
+				9438A18415940E490042CA60 /* libOCMock.a in Frameworks */,
 				9438A1191593E4120042CA60 /* UIKit.framework in Frameworks */,
 				9438A11B1593E4120042CA60 /* Foundation.framework in Frameworks */,
 			);
@@ -107,6 +118,7 @@
 		9438A0F71593E4110042CA60 = {
 			isa = PBXGroup;
 			children = (
+				9438A17915940E010042CA60 /* Libraries */,
 				9438A1081593E4110042CA60 /* UITableView+NXEmptyView */,
 				9438A11F1593E4120042CA60 /* UITableView+NXEmptyViewTests */,
 				9438A13A1593E4410042CA60 /* DemoApp */,
@@ -197,6 +209,28 @@
 				9438A1421593E4410042CA60 /* DemoApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9438A17915940E010042CA60 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9438A17C15940E380042CA60 /* libOCMock.a */,
+				9438A17D15940E380042CA60 /* OCMock */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		9438A17D15940E380042CA60 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				9438A17E15940E380042CA60 /* NSNotificationCenter+OCMAdditions.h */,
+				9438A17F15940E380042CA60 /* OCMArg.h */,
+				9438A18015940E380042CA60 /* OCMConstraint.h */,
+				9438A18115940E380042CA60 /* OCMock.h */,
+				9438A18215940E380042CA60 /* OCMockObject.h */,
+				9438A18315940E380042CA60 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,12 +604,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITableView+NXEmptyView/UITableView+NXEmptyView-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries";
 				INFOPLIST_FILE = "UITableView+NXEmptyViewTests/UITableView+NXEmptyViewTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 					"-framework",
 					.fake_fw_testing,
+					"-ObjC",
+					"-force_load",
+					"${PROJECT_DIR}/Libraries/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -591,12 +633,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITableView+NXEmptyView/UITableView+NXEmptyView-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries";
 				INFOPLIST_FILE = "UITableView+NXEmptyViewTests/UITableView+NXEmptyViewTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 					"-framework",
 					.fake_fw_testing,
+					"-ObjC",
+					"-force_load",
+					"${PROJECT_DIR}/Libraries/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -667,6 +717,7 @@
 				9438A12C1593E4120042CA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9438A12D1593E4120042CA60 /* Build configuration list for PBXNativeTarget "UITableView+NXEmptyViewTests" */ = {
 			isa = XCConfigurationList;
@@ -675,6 +726,7 @@
 				9438A12F1593E4120042CA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9438A14C1593E4410042CA60 /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
 			isa = XCConfigurationList;
@@ -683,6 +735,7 @@
 				9438A14E1593E4410042CA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
