@@ -36,3 +36,13 @@ Contributions are highly welcomed!
 - Receive virtual high fives! :hand:
 
 Bonus points for feature branches :sunglasses:
+
+### Contributors
+
+- Your name here?
+
+
+## License
+
+This code is released under the _3-clause BSD License_ (aka _new BSD License_ or _modified BSD License_).
+The full text is included in the LICENSE file in the root of the repository.
