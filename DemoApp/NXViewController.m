@@ -48,7 +48,7 @@
 
 - (IBAction)remove:(id)sender
 {
-    NSInteger length = fmaxf(self.items.count - 1, 0);
+    NSInteger length = fmaxf((NSInteger)self.items.count - 1, 0);
     self.items = [self.items subarrayWithRange:NSMakeRange(0, length)];
 }
 
