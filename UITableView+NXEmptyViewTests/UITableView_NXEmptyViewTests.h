@@ -9,11 +9,13 @@
 #import <UITableView+NXEmptyView/UITableView+NXEmptyView.h>
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <OCMock/OCMock.h>
 
 @interface UITableView_NXEmptyViewTests : SenTestCase <UITableViewDataSource>
 
-@property (nonatomic, retain) UITableViewController *controller;
 @property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) NSArray *items;
+@property (nonatomic, retain) OCMockObject<UITableViewDataSource> *dataSourceMock;
+
+@property (nonatomic, retain) NSArray *dataSourceItems;
 
 @end
