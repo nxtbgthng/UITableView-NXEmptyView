@@ -75,6 +75,7 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     emptyView.frame = self.bounds;
     
     const BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
+    emptyView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     const BOOL emptyViewIsShown       = (emptyView.superview != nil);
     
     if (emptyViewShouldBeShown == emptyViewIsShown) return;

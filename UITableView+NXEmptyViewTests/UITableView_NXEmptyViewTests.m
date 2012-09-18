@@ -78,4 +78,22 @@
     STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
 }
 
+- (void)testThatTheFrameOfTheEmptyViewIsSetCorrectly
+{
+    [self.tableView reloadData];
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
+    STAssertTrue(CGRectEqualToRect(self.tableView.nxEV_emptyView.frame, self.tableView.bounds), @"The frame of the emptyView should be the bounds of the table view");
+}
+
+- (void)testThatTheFrameOfTheEmptyViewIsUpdatedTogetherWithTheTableView
+{
+    [self.tableView reloadData];
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
+    STAssertTrue(CGRectEqualToRect(self.tableView.nxEV_emptyView.frame, self.tableView.bounds), @"The frame of the emptyView should be the bounds of the table view");
+    self.tableView.frame = CGRectMake(10, 10, 200, 200);
+    STAssertTrue(CGRectEqualToRect(self.tableView.nxEV_emptyView.frame, self.tableView.bounds), @"The frame of the emptyView should be the bounds of the table view, even after updating and not %@", NSStringFromCGRect(self.tableView.nxEV_emptyView.frame));
+}
+
 @end
