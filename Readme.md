@@ -11,6 +11,12 @@ Whenever the table view is reloaded or layouted the empty view gets updated.
 
 The frame of the empty view is updated to the bounds of the table view, so make sure it layouts nicely for all the orientations and screen sizes (iPhone 5, yay) that you're targeting.
 
+### Bypassing the Empty View
+
+There might be scenarios in which you don't want the empty view to appear. For example when the content of the list has not yet been loaded and you don't want to scream at the user that there's none just because it has not yet been loaded.
+
+In that case you can let your table view datasource implement the `UITableViewNXEmptyViewDataSource` protocol and return `NO` in `-tableViewShouldBypassNXEmptyView:`. Whenever this value changes do a `-[UITableView reloadData]` to update the empty view.
+
 ## Install
 
 ### Via Cocoapods

@@ -20,7 +20,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) style:UITableViewStylePlain];
     self.tableView.nxEV_emptyView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    self.dataSourceMock = [OCMockObject niceMockForProtocol:@protocol(UITableViewDataSource)];
+    self.dataSourceMock = [OCMockObject niceMockForProtocol:@protocol(UITableViewNXEmptyViewDataSource)];
     self.tableView.dataSource = self.dataSourceMock;
     
     // configuring the database mock
@@ -94,6 +94,30 @@
     STAssertTrue(CGRectEqualToRect(self.tableView.nxEV_emptyView.frame, self.tableView.bounds), @"The frame of the emptyView should be the bounds of the table view");
     self.tableView.frame = CGRectMake(10, 10, 200, 200);
     STAssertTrue(CGRectEqualToRect(self.tableView.nxEV_emptyView.frame, self.tableView.bounds), @"The frame of the emptyView should be the bounds of the table view, even after updating and not %@", NSStringFromCGRect(self.tableView.nxEV_emptyView.frame));
+}
+
+- (void)testBypassingOfTheEmptyView
+{
+    [self.tableView reloadData];
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
+    
+    BOOL shouldBypassEmptyView = YES;
+    [[[self.dataSourceMock stub] andReturnValue:OCMOCK_VALUE(shouldBypassEmptyView)] tableViewShouldBypassNXEmptyView:OCMOCK_ANY];
+    [self.tableView reloadData];
+    
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertNil(self.tableView.nxEV_emptyView.superview, @"The empty view should not be visible");
+}
+
+- (void)testTableViewShouldStillWorkWithDefaultDatasourceProtocol
+{
+    id plainDataSource = [OCMockObject niceMockForProtocol:@protocol(UITableViewDataSource)];
+    [[[plainDataSource stub] andReturnValue:[NSNumber numberWithInteger:0]] tableView:OCMOCK_ANY numberOfRowsInSection:0];
+    self.tableView.dataSource = plainDataSource;
+    [self.tableView reloadData];
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
 }
 
 @end

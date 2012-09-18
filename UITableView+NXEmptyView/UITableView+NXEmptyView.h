@@ -13,3 +13,9 @@
 @property (nonatomic, strong) IBOutlet UIView *nxEV_emptyView;
 
 @end
+
+
+@protocol UITableViewNXEmptyViewDataSource <UITableViewDataSource>
+@optional
+- (BOOL)tableViewShouldBypassNXEmptyView:(UITableView *)tableView;
+@end

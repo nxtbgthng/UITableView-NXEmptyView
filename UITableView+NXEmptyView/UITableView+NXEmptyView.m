@@ -73,10 +73,15 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     if (!emptyView) return;
     
     emptyView.frame = self.bounds;
-    
-    const BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
     emptyView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-    const BOOL emptyViewIsShown       = (emptyView.superview != nil);
+    
+    BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
+    BOOL emptyViewIsShown       = (emptyView.superview != nil);
+    
+    if (emptyViewShouldBeShown && [self.dataSource respondsToSelector:@selector(tableViewShouldBypassNXEmptyView:)]) {
+        BOOL emptyViewShouldBeBypassed = [(id<UITableViewNXEmptyViewDataSource>)self.dataSource tableViewShouldBypassNXEmptyView:self];
+        emptyViewShouldBeShown &= !emptyViewShouldBeBypassed;
+    }
     
     if (emptyViewShouldBeShown == emptyViewIsShown) return;
     
