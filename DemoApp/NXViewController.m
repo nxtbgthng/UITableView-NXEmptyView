@@ -7,6 +7,8 @@
 //
 
 #import <UITableView+NXEmptyView/UITableView+NXEmptyView.h>
+#import <QuartzCore/QuartzCore.h>
+#import "SVPullToRefresh.h"
 
 #import "NXViewController.h"
 
@@ -32,6 +34,27 @@
     return self;
 }
 
+- (void)viewDidLoad;
+{
+    [super viewDidLoad];
+
+    Class refreshControlClass = NSClassFromString(@"UIRefreshControl");
+    if (refreshControlClass) {
+        id refreshControl = [[refreshControlClass alloc] init];
+
+        [refreshControl addTarget:self
+                           action:@selector(refresh:)
+                 forControlEvents:UIControlEventValueChanged];
+
+        [self setRefreshControl:refreshControl];
+    } else {
+        __block id blockSelf = self;
+        [self.tableView addPullToRefreshWithActionHandler:^{
+            [blockSelf refresh:nil];
+        }];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated;
 {
     [super viewDidAppear:animated];
@@ -50,6 +73,21 @@
 {
     NSInteger length = fmaxf((NSInteger)self.items.count - 1, 0);
     self.items = [self.items subarrayWithRange:NSMakeRange(0, length)];
+}
+
+- (IBAction)refresh:(id)sender
+{
+    if ([self respondsToSelector:@selector(refreshControl)]) {
+        [self.refreshControl endRefreshing];
+    }
+
+    if ([self.tableView respondsToSelector:@selector(pullToRefreshView)]) {
+        [self.tableView.pullToRefreshView stopAnimating];
+    }
+
+    if (self.items.count == 0) {
+        [self add:nil];
+    }
 }
 
 

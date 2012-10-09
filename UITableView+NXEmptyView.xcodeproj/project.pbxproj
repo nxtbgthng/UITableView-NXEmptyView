@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9405A431162479BA00E83BB5 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405A430162479BA00E83BB5 /* SVPullToRefresh.m */; };
+		9405A43516247A0600E83BB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9405A43416247A0600E83BB5 /* QuartzCore.framework */; };
 		9438A10D1593E4110042CA60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9438A10B1593E4110042CA60 /* InfoPlist.strings */; };
 		9438A1171593E4120042CA60 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1161593E4120042CA60 /* SenTestingKit.framework */; };
 		9438A1191593E4120042CA60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438A1181593E4120042CA60 /* UIKit.framework */; };
@@ -47,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9405A42F162479BA00E83BB5 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVPullToRefresh.h; path = Libraries/SVPullToRefresh/SVPullToRefresh.h; sourceTree = SOURCE_ROOT; };
+		9405A430162479BA00E83BB5 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVPullToRefresh.m; path = Libraries/SVPullToRefresh/SVPullToRefresh.m; sourceTree = SOURCE_ROOT; };
+		9405A43416247A0600E83BB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9438A1061593E4110042CA60 /* UITableView+NXEmptyView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView+NXEmptyView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438A10A1593E4110042CA60 /* UITableView+NXEmptyView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITableView+NXEmptyView-Info.plist"; sourceTree = "<group>"; };
 		9438A10C1593E4110042CA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -109,12 +114,30 @@
 				9438A1361593E4410042CA60 /* UIKit.framework in Frameworks */,
 				9438A1371593E4410042CA60 /* Foundation.framework in Frameworks */,
 				9438A1391593E4410042CA60 /* CoreGraphics.framework in Frameworks */,
+				9405A43516247A0600E83BB5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9405A433162479BF00E83BB5 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				9405A42F162479BA00E83BB5 /* SVPullToRefresh.h */,
+				9405A430162479BA00E83BB5 /* SVPullToRefresh.m */,
+			);
+			name = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		9405A43616247A1700E83BB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9405A43416247A0600E83BB5 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9438A0F71593E4110042CA60 = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +218,9 @@
 				9438A1461593E4410042CA60 /* NXViewController.h */,
 				9438A1471593E4410042CA60 /* NXViewController.m */,
 				9438A1491593E4410042CA60 /* NXViewController.xib */,
+				9405A433162479BF00E83BB5 /* SVPullToRefresh */,
 				9438A13B1593E4410042CA60 /* Supporting Files */,
+				9405A43616247A1700E83BB5 /* Frameworks */,
 			);
 			path = DemoApp;
 			sourceTree = "<group>";
@@ -441,6 +466,7 @@
 				9438A1411593E4410042CA60 /* main.m in Sources */,
 				9438A1451593E4410042CA60 /* NXAppDelegate.m in Sources */,
 				9438A1481593E4410042CA60 /* NXViewController.m in Sources */,
+				9405A431162479BA00E83BB5 /* SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
