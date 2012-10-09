@@ -37,6 +37,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
 
     Class refreshControlClass = NSClassFromString(@"UIRefreshControl");
     if (refreshControlClass) {

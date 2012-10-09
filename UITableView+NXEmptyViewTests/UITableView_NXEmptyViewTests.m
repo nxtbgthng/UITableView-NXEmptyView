@@ -131,4 +131,37 @@
     STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointZero), @"Empty view should be positioned correctly");
 }
 
+- (void)testTableViewShouldNotHideSeparatorLinesWhenShowingEmptyView
+{
+    self.dataSourceItems = [NSArray arrayWithObject:@"x"];
+    [self.tableView reloadData];
+    UITableViewCellSeparatorStyle separatorStyle = self.tableView.separatorStyle;
+
+    STAssertTrue(self.tableView.separatorStyle == UITableViewCellSeparatorStyleSingleLine, @"Default separator style should be present");
+
+    self.dataSourceItems = [NSArray array];
+    [self.tableView reloadData];
+
+    STAssertTrue(self.tableView.separatorStyle == separatorStyle, @"Separator style should not change when empty view is shown");
+}
+
+- (void)testTableViewShouldHideSeparatorLinesWhenShowingEmptyViewWhenRequested
+{
+    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
+
+    self.dataSourceItems = [NSArray arrayWithObject:@"x"];
+    [self.tableView reloadData];
+    UITableViewCellSeparatorStyle separatorStyle = self.tableView.separatorStyle;
+
+    self.dataSourceItems = [NSArray array];
+    [self.tableView reloadData];
+
+    STAssertTrue(self.tableView.separatorStyle == UITableViewCellSeparatorStyleNone, @"Separator should be hidden");
+
+    self.dataSourceItems = [NSArray arrayWithObject:@"x"];
+    [self.tableView reloadData];
+
+    STAssertTrue(self.tableView.separatorStyle == separatorStyle, @"Separator should reappear");
+}
+
 @end

@@ -12,6 +12,8 @@
 
 
 static const NSString *NXEmptyViewAssociatedKey = @"NXEmptyViewAssociatedKey";
+static const NSString *NXEmptyViewHideSeparatorLinesAssociatedKey = @"NXEmptyViewHideSeparatorLinesAssociatedKey";
+static const NSString *NXEmptyViewPreviousSeparatorStyleAssociatedKey = @"NXEmptyViewPreviousSeparatorStyleAssociatedKey";
 
 
 void nxEV_swizzle(Class c, SEL orig, SEL new)
@@ -24,6 +26,11 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
         method_exchangeImplementations(origMethod, newMethod);
 }
 
+
+
+@interface UITableView (NXEmptyViewPrivate)
+@property (nonatomic, assign) UITableViewCellSeparatorStyle nxEV_previousSeparatorStyle;
+@end
 
 
 @implementation UITableView (NXEmptyView)
@@ -63,6 +70,19 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     [self nxEV_updateEmptyView];
 }
 
+@dynamic nxEV_hideSeparatorLinesWheyShowingEmptyView;
+- (BOOL)nxEV_hideSeparatorLinesWheyShowingEmptyView
+{
+    NSNumber *hideSeparator = objc_getAssociatedObject(self, &NXEmptyViewHideSeparatorLinesAssociatedKey);
+    return hideSeparator ? [hideSeparator boolValue] : NO;
+}
+
+- (void)setNxEV_hideSeparatorLinesWheyShowingEmptyView:(BOOL)value
+{
+    NSNumber *hideSeparator = [NSNumber numberWithBool:value];
+    objc_setAssociatedObject(self, &NXEmptyViewHideSeparatorLinesAssociatedKey, hideSeparator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 
 #pragma mark Updating
 
@@ -88,8 +108,15 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     if (emptyViewShouldBeShown == emptyViewIsShown) return;
     
     if (emptyViewShouldBeShown) {
+        if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
+            self.nxEV_previousSeparatorStyle = self.separatorStyle;
+            self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        }
         [self addSubview:emptyView];
     } else {
+        if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
+            self.separatorStyle = self.nxEV_previousSeparatorStyle;
+        }
         [emptyView removeFromSuperview];
     }
 }
@@ -113,5 +140,25 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     [self nxEV_updateEmptyView];
 }
 
+@end
+
+
+#pragma mark Private
+#pragma mark -
+
+@implementation UITableView (NXEmptyViewPrivate)
+
+@dynamic nxEV_previousSeparatorStyle;
+- (UITableViewCellSeparatorStyle)nxEV_previousSeparatorStyle
+{
+    NSNumber *previousSeparatorStyle = objc_getAssociatedObject(self, &NXEmptyViewPreviousSeparatorStyleAssociatedKey);
+    return previousSeparatorStyle ? [previousSeparatorStyle intValue] : self.separatorStyle;
+}
+
+- (void)setNxEV_previousSeparatorStyle:(UITableViewCellSeparatorStyle)value
+{
+    NSNumber *previousSeparatorStyle = [NSNumber numberWithInt:value];
+    objc_setAssociatedObject(self, &NXEmptyViewPreviousSeparatorStyleAssociatedKey, previousSeparatorStyle, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
