@@ -72,7 +72,9 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     if (!emptyView) return;
     
-    emptyView.frame = self.bounds;
+    CGRect emptyViewFrame = self.bounds;
+    emptyViewFrame.origin = CGPointMake(0, 0);
+    emptyView.frame = emptyViewFrame;
     emptyView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     
     BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);

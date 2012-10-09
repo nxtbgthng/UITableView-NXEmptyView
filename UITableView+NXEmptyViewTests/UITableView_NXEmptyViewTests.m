@@ -120,4 +120,15 @@
     STAssertNotNil(self.tableView.nxEV_emptyView.superview, @"The empty view should be visible");
 }
 
+- (void)testEmptyViewShouldScrollWithTableView
+{
+    [self.tableView reloadData];
+    STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
+    STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointZero), @"Empty view should be positioned correctly");
+
+    [self.tableView setContentOffset:CGPointMake(0, 40) animated:YES];
+    [self.tableView layoutSubviews];
+    STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointZero), @"Empty view should be positioned correctly");
+}
+
 @end
