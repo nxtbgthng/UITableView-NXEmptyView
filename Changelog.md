@@ -1,7 +1,7 @@
 # Changelog
 
 # v0.1.2
-- fixing issue #1
+- fixing issue #1 (support for pull to refresh)
 - adding an option to hide the seperator lines when the empty view is shown (great for transparent empty views!)
 
 # v0.1.1
