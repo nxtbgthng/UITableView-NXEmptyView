@@ -94,7 +94,10 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     CGRect emptyViewFrame = self.bounds;
     emptyViewFrame.origin = CGPointMake(0, 0);
-    emptyView.frame = emptyViewFrame;
+    emptyView.frame = UIEdgeInsetsInsetRect(emptyViewFrame, UIEdgeInsetsMake(CGRectGetHeight(self.tableHeaderView.frame),
+                                                                             0,
+                                                                             0,
+                                                                             0));
     emptyView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     
     BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);

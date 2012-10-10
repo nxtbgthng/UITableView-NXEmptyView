@@ -167,4 +167,13 @@
     STAssertTrue(self.tableView.separatorStyle == separatorStyle, @"Separator should reappear");
 }
 
+- (void)testEmptyViewShouldRespectTableHeaderView
+{
+    [self.tableView reloadData];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [self.tableView layoutSubviews];
+    
+    STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointMake(0, 50)), @"Empty view should be positioned correctly");
+}
+
 @end
