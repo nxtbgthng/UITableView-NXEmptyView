@@ -126,8 +126,11 @@
     STAssertNotNil(self.tableView.nxEV_emptyView, @"There should be an empty view");
     STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointZero), @"Empty view should be positioned correctly");
 
-    [self.tableView setContentOffset:CGPointMake(0, 40) animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, 40)];
+    // needs the layout subviews here, because setContentOffset is just calling setNeedsLayout and we don't want
+    // to add asynchrony to the test :)
     [self.tableView layoutSubviews];
+
     STAssertTrue(CGPointEqualToPoint(self.tableView.nxEV_emptyView.frame.origin, CGPointZero), @"Empty view should be positioned correctly");
 }
 
