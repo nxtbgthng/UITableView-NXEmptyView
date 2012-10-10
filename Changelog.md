@@ -1,5 +1,8 @@
 # Changelog
 
+# v0.1.3
+- preventing the empty view from hiding the table header view
+
 # v0.1.2
 - fixing issue #1 (support for pull to refresh)
 - adding an option to hide the seperator lines when the empty view is shown (great for transparent empty views!)
