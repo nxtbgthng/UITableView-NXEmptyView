@@ -92,17 +92,21 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     if (!emptyView) return;
     
+    if (emptyView.superview != self) {
+        [self addSubview:emptyView];
+    }
+    
+    // setup empty view frame
     CGRect emptyViewFrame = self.bounds;
     emptyViewFrame.origin = CGPointMake(0, 0);
-    emptyView.frame = UIEdgeInsetsInsetRect(emptyViewFrame, UIEdgeInsetsMake(CGRectGetHeight(self.tableHeaderView.frame),
-                                                                             0,
-                                                                             0,
-                                                                             0));
+    emptyView.frame = UIEdgeInsetsInsetRect(emptyViewFrame, UIEdgeInsetsMake(CGRectGetHeight(self.tableHeaderView.frame), 0, 0, 0));
     emptyView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     
+    // check available data
     BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
-    BOOL emptyViewIsShown       = (emptyView.superview != nil);
+    BOOL emptyViewIsShown       = (!emptyView.hidden);
     
+    // check bypassing
     if (emptyViewShouldBeShown && [self.dataSource respondsToSelector:@selector(tableViewShouldBypassNXEmptyView:)]) {
         BOOL emptyViewShouldBeBypassed = [(id<UITableViewNXEmptyViewDataSource>)self.dataSource tableViewShouldBypassNXEmptyView:self];
         emptyViewShouldBeShown &= !emptyViewShouldBeBypassed;
@@ -110,18 +114,20 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     if (emptyViewShouldBeShown == emptyViewIsShown) return;
     
+    // hide tableView separators, if present
     if (emptyViewShouldBeShown) {
         if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
             self.nxEV_previousSeparatorStyle = self.separatorStyle;
             self.separatorStyle = UITableViewCellSeparatorStyleNone;
         }
-        [self addSubview:emptyView];
     } else {
         if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
             self.separatorStyle = self.nxEV_previousSeparatorStyle;
         }
-        [emptyView removeFromSuperview];
     }
+    
+    // show / hide empty view
+    emptyView.hidden = !emptyViewShouldBeShown;
 }
 
 
