@@ -1,5 +1,9 @@
 # Changelog
 
+# v0.1.4
+- adding the empty view only once (so layouting only runs once),  
+  using `hidden` property now to trigger visibility
+
 # v0.1.3
 - preventing the empty view from hiding the table header view
 
