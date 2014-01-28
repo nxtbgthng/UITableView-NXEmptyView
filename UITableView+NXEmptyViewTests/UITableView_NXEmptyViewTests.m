@@ -150,7 +150,7 @@
 
 - (void)testTableViewShouldHideSeparatorLinesWhenShowingEmptyViewWhenRequested
 {
-    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
+    self.tableView.nxEV_hideSeparatorLinesWhenShowingEmptyView = YES;
 
     self.dataSourceItems = [NSArray arrayWithObject:@"x"];
     [self.tableView reloadData];
