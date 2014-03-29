@@ -117,7 +117,9 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     // hide tableView separators, if present
     if (emptyViewShouldBeShown) {
         if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
-            self.nxEV_previousSeparatorStyle = self.separatorStyle;
+            if (!emptyViewIsShown) {
+                self.nxEV_previousSeparatorStyle = self.separatorStyle;
+            }
             self.separatorStyle = UITableViewCellSeparatorStyleNone;
         }
     } else {
