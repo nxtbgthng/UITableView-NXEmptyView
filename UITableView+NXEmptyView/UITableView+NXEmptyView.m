@@ -113,13 +113,13 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
         BOOL emptyViewShouldBeBypassed = [(id<UITableViewNXEmptyViewDataSource>)self.dataSource tableViewShouldBypassNXEmptyView:self];
         emptyViewShouldBeShown &= !emptyViewShouldBeBypassed;
     }
-    
-    if (emptyViewShouldBeShown == emptyViewIsShown) return;
-    
+
     // hide tableView separators, if present
     if (emptyViewShouldBeShown) {
         if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
-            self.nxEV_previousSeparatorStyle = self.separatorStyle;
+            if (!emptyViewIsShown) {
+                self.nxEV_previousSeparatorStyle = self.separatorStyle;
+            }
             self.separatorStyle = UITableViewCellSeparatorStyleNone;
         }
     } else {
@@ -127,6 +127,8 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
             self.separatorStyle = self.nxEV_previousSeparatorStyle;
         }
     }
+
+	if (emptyViewShouldBeShown == emptyViewIsShown) return;    
     
     // show / hide empty view
     emptyView.hidden = !emptyViewShouldBeShown;
