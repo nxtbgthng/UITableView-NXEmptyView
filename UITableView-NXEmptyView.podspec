@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'UITableView-NXEmptyView'
   s.platform = :ios
-  s.version  = '0.1.5'
+  s.version  = '0.1.6'
   s.license  = 'BSD'
   s.summary  = 'A category on UITableView that adds an empty view that can be shown whenever the table view has no cells.'
   s.homepage = 'https://github.com/nxtbgthng/UITableView-NXEmptyView'
