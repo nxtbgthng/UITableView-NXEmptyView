@@ -106,7 +106,6 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     // check available data
     BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
-    BOOL emptyViewIsShown       = (!emptyView.hidden);
     
     // check bypassing
     if (emptyViewShouldBeShown && [self.dataSource respondsToSelector:@selector(tableViewShouldBypassNXEmptyView:)]) {
