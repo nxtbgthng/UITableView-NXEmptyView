@@ -106,7 +106,6 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     
     // check available data
     BOOL emptyViewShouldBeShown = (self.nxEV_hasRowsToDisplay == NO);
-    BOOL emptyViewIsShown       = (!emptyView.hidden);
     
     // check bypassing
     if (emptyViewShouldBeShown && [self.dataSource respondsToSelector:@selector(tableViewShouldBypassNXEmptyView:)]) {
@@ -115,15 +114,21 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     }
     
     // hide tableView separators, if present
-    if (emptyViewShouldBeShown) {
-        if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView &&
-            self.separatorStyle != UITableViewCellSeparatorStyleNone) {
-            self.nxEV_previousSeparatorStyle = self.separatorStyle;
-            self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        }
-    } else {
-        if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
-            self.separatorStyle = self.nxEV_previousSeparatorStyle;
+    if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
+        if (emptyViewShouldBeShown) {
+            if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
+                self.nxEV_previousSeparatorStyle = self.separatorStyle;
+                self.separatorStyle = UITableViewCellSeparatorStyleNone;
+            }
+        } else {
+            if (self.separatorStyle != self.nxEV_previousSeparatorStyle) {
+                // we've seen an issue with the separator color not being correct when setting separator style during layoutSubviews
+                // that's why we schedule the call on the next runloop cycle
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    self.separatorStyle = self.nxEV_previousSeparatorStyle;
+                });
+                
+            }
         }
     }
     
