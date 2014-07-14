@@ -70,14 +70,14 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     [self nxEV_updateEmptyView];
 }
 
-@dynamic nxEV_hideSeparatorLinesWheyShowingEmptyView;
-- (BOOL)nxEV_hideSeparatorLinesWheyShowingEmptyView
+@dynamic nxEV_hideSeparatorLinesWhenShowingEmptyView;
+- (BOOL)nxEV_hideSeparatorLinesWhenShowingEmptyView
 {
     NSNumber *hideSeparator = objc_getAssociatedObject(self, &NXEmptyViewHideSeparatorLinesAssociatedKey);
     return hideSeparator ? [hideSeparator boolValue] : NO;
 }
 
-- (void)setNxEV_hideSeparatorLinesWheyShowingEmptyView:(BOOL)value
+- (void)setNxEV_hideSeparatorLinesWhenShowingEmptyView:(BOOL)value
 {
     NSNumber *hideSeparator = [NSNumber numberWithBool:value];
     objc_setAssociatedObject(self, &NXEmptyViewHideSeparatorLinesAssociatedKey, hideSeparator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -114,7 +114,7 @@ void nxEV_swizzle(Class c, SEL orig, SEL new)
     }
     
     // hide tableView separators, if present
-    if (self.nxEV_hideSeparatorLinesWheyShowingEmptyView) {
+    if (self.nxEV_hideSeparatorLinesWhenShowingEmptyView) {
         if (emptyViewShouldBeShown) {
             if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
                 self.nxEV_previousSeparatorStyle = self.separatorStyle;
