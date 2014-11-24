@@ -27,7 +27,7 @@ Add this to your Podfile
 
 In your table view do:
 
-- `#import <UITableView+NXEmptyView/UITableView+NXEmptyView.h>`
+- `#import <UITableView-NXEmptyView/UITableView+NXEmptyView.h>`
 - Set the `nxEV_emptyView` property of the table view with the view you want to be displayed when the table is empty.
 You can use the Interface Builder to do so as well.
 
